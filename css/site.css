@@ -15,7 +15,7 @@ body {
     background-color: var(--background-primary);
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,p,li {
     color: var(--stroke);
 }
 
