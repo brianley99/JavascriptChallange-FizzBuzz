@@ -28,11 +28,12 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html"><img src="./img/SelfB-SY-brown.svg"
-                class="d-inline-block align-text-top me-2" width="30" height="24"><img src="./img/fizzbuzz-title.svg" height=24 alt="App Title"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                    class="d-inline-block align-text-top me-2" width="30" height="24"><img
+                    src="./img/fizzbuzz-title.svg" height=24 alt="App Title"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
@@ -57,7 +58,54 @@
     <!--Main Section-->
     <main class="flex-shrink-0">
         <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 pt-3 gx-4 gy-3">
+                <div class="col border-end border-2">
+                    <div class="row border-bottom border-2">
+                        <h2>FizzBuzz App</h2>
+                        <p>When it counts you FizzBuzz. A Javascript coding exersise using loops. Write a program that prints the numbers from 1 to 100 and for multiples of '3' display '<strong>Fizz</strong>' instead of the number and for the multiples of '5' display '<strong>Buzz</strong>'. If a multiple of both display '<strong>FizzBuzz</strong>'.</p>
+                    </div>
+                    <div class="row">
+                        <h2>Instructions</h2>
+                        <p>Eneter a fizz and a buzz value. Press the button and the values will appear.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <form>
+                        <div class="row row-cols-1 row-cols-sm-2">
+                            <div class="col">
+                                <h6>Enter A Fizz Number</h1>
+                                    <input id="fizzNum" type="number" class="form-control" value="3" placeholder="3">
+                            </div>
+                            <div class="col">
+                                <h6>Eneter A Buzz Number</h6>
+                                <input id="buzzNum" type="number" class="form-control" value="5" placeholder="5">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <button id="btnSubmit" type="button" class="btn btn-dark">Go Fizz Buzz</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row pt-5">
+                        <div  id="result-div" class="col invisible">
+                            <h3>Results</h3>
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="5">FizzBuzz Results</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results">
+                                    <!--Results Go Here-->
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
 
+            </div>
         </div>
     </main>
 
@@ -73,11 +121,14 @@
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
-                        <div class="col social"><a href="https://www.linkedin.com/in/brian-ley/" target="_blank"><i class="fab fa-linkedin icon fa-2x"></i></i></a>
+                        <div class="col social"><a href="https://www.linkedin.com/in/brian-ley/" target="_blank"><i
+                                    class="fab fa-linkedin icon fa-2x"></i></i></a>
                         </div>
-                        <div class="col social"><a href="https://github.com/brianley99" target="_blank"><i class="fab fa-github icon fa-2x"></i></i></a>
+                        <div class="col social"><a href="https://github.com/brianley99" target="_blank"><i
+                                    class="fab fa-github icon fa-2x"></i></i></a>
                         </div>
-                        <div class="col social"><a href="https://twitter.com/Brian70070729" target="_blank"><i class="fab fa-twitter icon fa-2x"></i></i></a>
+                        <div class="col social"><a href="https://twitter.com/Brian70070729" target="_blank"><i
+                                    class="fab fa-twitter icon fa-2x"></i></i></a>
                         </div>
                     </div>
                 </div>
@@ -92,6 +143,9 @@
     <!--JavaScript-->
     <script src="./js/site.js"></script>
 
+    <script>
+        document.getElementById('btnSubmit').addEventListener('click', getValues)
+    </script>
 </body>
 
 </html>
