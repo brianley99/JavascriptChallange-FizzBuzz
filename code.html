@@ -65,16 +65,122 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert('Hello World!');
-                        }
+                        
+//input function
+//get values from document
+
+function getValues() {
+
+    let fizz = document.getElementById('fizzNum').value;
+    let buzz = document.getElementById('buzzNum').value;
+
+    let fizzNum = parseInt(fizz);
+    let buzzNum = parseInt(buzz);
+    
+    //authenticate input
+    if (Number.isInteger(fizzNum) && Number.isInteger(buzzNum)) {
+        
+        //genrate list
+        let fizzBuzzNums = generateNums(fizzNum, buzzNum);
+
+        //display the numbers onto the document
+        displayList(fizzBuzzNums);
+
+    } else {
+        //vertification fail
+        alert("Must Input Integer")
+    }
+}
+
+
+//logic function
+//generate data for table
+function generateNums(fizzNum, buzzNum) {
+    
+    const fizzBuzzArray = []
+
+    //genertate num 1-100 and change to fizzbuzz/fizz/buzz if nedded
+    //add to fizzBuzzArray
+    for (let index = 1; index <= 100; index++) {
+        
+        if ((index % fizzNum === 0) && (index % buzzNum === 0)) {
+            //number is fizzbuzz
+            fizzBuzzArray.push('FizzBuzz')  
+
+        } else if (index % fizzNum === 0) {
+            //number is fizz 
+            fizzBuzzArray.push('Fizz')
+
+        } else if (index % buzzNum === 0) {
+            //number is buzz 
+            fizzBuzzArray.push('Buzz')
+
+        } else {
+            //number is just added to array 
+            fizzBuzzArray.push(index)
+
+        }
+    }
+
+    return fizzBuzzArray;
+}
+
+//output function
+//display numbers
+function displayList (fizzBuzzNums) {
+
+    //turn table invisible
+    document.getElementById('result-div').classList.add('invisible');
+
+    //genarate html
+    let templateRows = "";
+
+    for (let index = 0; index < 100; index++) {
+        
+        //generates a row with 5 td 
+        if (index % 5 === 0) {
+            templateRows += `
+        &lt;tr>
+            &lt;td class="ps-3">${fizzBuzzNums[index]}&lt;/td>
+            &lt;td class="ps-3">${fizzBuzzNums[index + 1]}&lt;/td>
+            &lt;td class="ps-3">${fizzBuzzNums[index + 2]}&lt;/td>
+            &lt;td class="ps-3">${fizzBuzzNums[index + 3]}&lt;/td>
+            &lt;td class="ps-3">${fizzBuzzNums[index + 4]}&lt;/td>
+        &lt;/tr>
+        `;
+        }
+        
+    }
+
+    //insert html
+    document.getElementById('results').innerHTML = templateRows;
+
+    //turn table visible
+    document.getElementById('result-div').classList.remove('invisible');
+}
+
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is stucured in one Function</p>
-                    <h5>Hello World!</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World!"</p>
+                    <h5>Code Explination: Fizz Buzz</h5>
+                    <p>FizzBuzz's code is started when the user clicks the button "Go Fizz Buzz". First, the high order function getValues() will assign a variable to the user's input, convert them to an integer, and be assigned the variable name "fizzNum" and "buzzNum".</p>
+
+                    <p>getValues() will then vertify that "fizzNum" and "buzzNum" are valid inputs, only after the input has been vertified to be valid will getValues() will execute functions genertateNums() and displayNums(). Otherwise getValues() will display an alert.</p>
+
+                    <p>Next,  generateNums() will be called on with "fizzNum" and "buzzNum" as arguments and be assigned to the variable "fizzBuzzNums".</p>
+
+                    <p>generateNums() creates an empty array called "fizzBuzzArray", using a for loop to generate a list of numbers from 1-100. generateNums() will go through the numbers one by one, assigning them a string name if conditions are met before adding them to "fizzBuzzArray".</p>
+                    
+	                <p>Conditions:
+                        <ul>
+                            <li>FizzBuzz - divisible by both "FizzNum" and "BuzzNum"</li>
+                            <li>Fizz - only divisible by "FizzNum"</li>
+                            <li>Buzz - only divisible by "BuzzNum"</li>
+                        </ul></p>
+		        
+                    <p>Lastly, displayNums() will be called on with "fizzBuzzNums" as its argument.</p>
+
+                    <p>displayNums() will add the class "invisible" to the div tag named "result-div", it will then convert "fizzBuzzNums" into an HTML table and insert it into the file app.html under the div named "result-div" and turn it visible by removing the class "invisible" from the div tag.</p>
                 </div>
             </div>
         </div>
